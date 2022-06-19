@@ -13,33 +13,41 @@ const Register = () => {
     setUserAcc(a);
     setBool(true);
   };
-  //   useEffect(() => {
-  //     getAcc();
-  //   });
+  const connect = async () => {
+    getAcc();
+  };
+  // useEffect(() => {
+  //   getAcc();
+  // }, [userAcc]);
   const saveUsername = (e) => {
     setUsername(e.target.value);
   };
   const submitData = async (e) => {
     e.preventDefault();
 
-    await getAcc();
-    if (userAcc == " ") {
-      await getAcc();
-      return;
-    } else if (bool === true) {
+    if (userAcc != "" && bool === true) {
       Axios.post("http://localhost:3001/registration", {
         username: username,
         useraccount: userAcc,
       });
-      Axios.get("http://localhost:3001/registration").then((response) => {
-        alert(response.data);
-      });
       console.log("submitted form");
+      // } else {
+      //   getAcc();
+      //   Axios.post("http://localhost:3001/registration", {
+      //     username: username,
+      //     useraccount: userAcc,
+      //   });
+      //   Axios.get("http://localhost:3001/registration").then((response) => {
+      //     console.log(response.data);
+      //   });
+      //   console.log("submitted form");
+    } else {
+      alert("connect your wallet");
     }
   };
-
   return (
     <div>
+      <button onClick={connect}>Connect</button>
       <form onSubmit={submitData}>
         <input
           type="text"
@@ -47,7 +55,7 @@ const Register = () => {
           onChange={saveUsername}
           required
         ></input>
-        <button>Register</button>
+        <button>Connect Metamask</button>
       </form>
       <h1>{userAcc}</h1>
     </div>

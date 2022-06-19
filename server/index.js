@@ -24,6 +24,10 @@ app.post("/registration", (req, res) => {
     [userAccount],
     (err, result) => {
       if (result.length > 0) {
+        app.get("/registration", (req, res) => {
+          res.send({ result: "true" });
+        });
+
         return;
       }
       if (err) {
@@ -42,7 +46,6 @@ app.post("/registration", (req, res) => {
     }
   );
 });
-
 app.listen(3001, () => {
   console.log("server is runnindddg");
 });
