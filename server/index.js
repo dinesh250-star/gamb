@@ -15,7 +15,15 @@ const db = mysql.createConnection({
 app.get("/d", (req, res) => {
   res.send("hello world!");
 });
-
+app.get("/all-users", (req, res) => {
+  db.query("SELECT * FROM user_info", (err, result) => {
+    if (result) {
+      res.send(result);
+    } else {
+      console.log("Error querying");
+    }
+  });
+});
 app.post("/registration", (req, res) => {
   const userAccount = req.body.useraccount;
   const userName = req.body.username;
