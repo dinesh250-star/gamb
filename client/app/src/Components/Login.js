@@ -17,6 +17,10 @@ const Login = () => {
         });
         setUserAccount(accounts[0]);
         setBoolLogin(true);
+        Axios.post("http://localhost:3001/registration", {
+          userAccount: accounts[0],
+        });
+        // store in db or dont
       } catch (error) {
         console.log("Error connecting...");
       }
