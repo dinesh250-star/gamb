@@ -10,19 +10,7 @@ const db = mysql.createConnection({
   password: "",
   database: "testnode",
 });
-app.get("/", (req, res) => {
-  res.send("hello world!");
-});
-app.post("/create", (req, res) => {
-  const rollNo = req.body.rno;
-  db.query("INSERT INTO hi (rno) VALUES(?)", [rollNo], (err, result) => {
-    if (err) {
-      console.log("error");
-    } else {
-      res.send("values inserted");
-    }
-  });
-});
+
 app.listen(3001, () => {
-  console.log("server is runnindddg");
+  console.log("server is running");
 });
