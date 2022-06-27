@@ -1,5 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
-
+require("dotenv").config();
+require("@nomiclabs/hardhat-ethers");
+require("@nomiclabs/hardhat-etherscan");
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -16,15 +18,31 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-
+const api = process.env.POLYGONSCAN_API_KEY || "";
+const pvt = process.env.PRIVATE_KEY || "";
 module.exports = {
-  solidity: "0.8.4",
+  // solidity: "0.8.4",
   paths: {
     artifacts: "./src/artifacts",
   },
+  defaultNetwork: "matic",
   networks: {
-    hardhat: {
-      chainId: 1337,
+    hardhat: {},
+    matic: {
+      url: "https://rpc-mumbai.maticvigil.com",
+      account: ["pvt"],
+    },
+  },
+  etherscan: {
+    apiKey: "api",
+  },
+  solidity: {
+    version: "0.8.4",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
     },
   },
 };
