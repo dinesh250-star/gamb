@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import Axios from "axios";
-import { dbActions } from "../store/dbSlice";
+import { dbActions } from "../../store/dbSlice";
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
   const [boolLogin, setBoolLogin] = useState(false);

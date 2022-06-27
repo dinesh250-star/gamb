@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Axios from "axios";
-import Login from "./Components/Login";
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
