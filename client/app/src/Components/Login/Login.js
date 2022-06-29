@@ -6,6 +6,17 @@ import { dbActions } from "../../store/dbSlice";
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("chainChanged", () => {
+        window.location.reload();
+      });
+      window.ethereum.on("accountsChanged", () => {
+        window.location.reload();
+      });
+    }
+  }, []);
   async function requestAccount() {
     if (window.ethereum) {
       console.log("detected");
