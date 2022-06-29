@@ -5,8 +5,7 @@ import Axios from "axios";
 import { dbActions } from "../../store/dbSlice";
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
-  const [boolLogin, setBoolLogin] = useState(false);
-  const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const dispatch = useDispatch();
   async function requestAccount() {
     if (window.ethereum) {
       console.log("detected");
@@ -16,11 +15,12 @@ const Login = () => {
           method: "eth_requestAccounts",
         });
         setUserAccount(accounts[0]);
-        setBoolLogin(true);
+
         Axios.post("http://localhost:3001/registration", {
           userAccount: accounts[0],
         });
-        // store in db or dont
+        dispatch(dbActions.logIn());
+        dispatch(dbActions.userAccount(accounts[0]));
       } catch (error) {
         console.log("Error connecting...");
       }

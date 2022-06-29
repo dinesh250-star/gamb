@@ -30,11 +30,13 @@ module.exports = {
     hardhat: {},
     matic: {
       url: "https://rpc-mumbai.maticvigil.com",
-      account: ["pvt"],
+      accounts: [
+        "05a8283540718fd326d7b49ed4011f7324e97519ae0bb3fcf9097e089ecda34f",
+      ],
     },
   },
   etherscan: {
-    apiKey: "api",
+    apiKey: "9NZ74TYKQUWIT7KUB1814H1EERTY7VU7MI",
   },
   solidity: {
     version: "0.8.4",

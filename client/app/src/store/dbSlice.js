@@ -4,7 +4,7 @@ import Axios from "axios";
 const dbSlice = createSlice({
   name: "db",
   initialState: {
-    users: [],
+    userAcc: "",
     loggedIn: false,
   },
   reducers: {
@@ -30,6 +30,13 @@ const dbSlice = createSlice({
       } else {
         alert("Already Registered");
       }
+    },
+    logIn(state, action) {
+      state.loggedIn = true;
+    },
+    userAccount(state, action) {
+      const acc = action.payload;
+      state.userAcc = acc;
     },
   },
 });
