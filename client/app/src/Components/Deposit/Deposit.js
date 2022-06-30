@@ -6,7 +6,7 @@ import Gamble from "../../artifacts/contracts/Gamble.sol/Gamble.json";
 const Deposit = () => {
   const acc = useSelector((state) => state.db.userAcc);
   const [matic, setMatic] = useState(1);
-
+  const [hi,setHi] = useState("");
   const [getUBalance, setGetUBalance] = useState(0);
   const logInState = useSelector((state) => state.db.loggedIn);
   const gambleAddress = "0x45c301cb797BfAbC889a61e3aE4f22519fE7A324";
