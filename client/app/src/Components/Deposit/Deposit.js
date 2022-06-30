@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 import { useSelector } from "react-redux";
-
+//b
 import Gamble from "../../artifacts/contracts/Gamble.sol/Gamble.json";
 const Deposit = () => {
   const acc = useSelector((state) => state.db.userAcc);
