@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
+// import { configureStore } from "@reduxjs/toolkit";
 import dbSlice from "./dbSlice";
-export const store = configureStore({
-  reducer: { db: dbSlice.reducer },
-});
+// export const store = configureStore({
+//   reducer: { db: dbSlice.reducer },
+// });
